@@ -26,6 +26,7 @@ vec4 specularLightColour=vec4(1.0f,1.0f,1.0f,1.0f);
 float specularPower=25.0f;
 
 vec3 lightDirection=vec3(0.0f,0.0f,1.0f);
+//JOHN
 vec3 cameraPosition=vec3(0.0f,10.0f,10.0f);
 
 //for Framebuffer
@@ -441,12 +442,16 @@ int main(int argc, char * arg[])
 				switch (event.key.keysym.sym)
 				{
 				case SDLK_LEFT:
+                        cameraPosition.x++;
 					break;
 				case SDLK_RIGHT:
+                        cameraPosition.x--;
 					break;
 				case SDLK_UP:
+                        cameraPosition.y++;
 					break;
-				case SDLK_DOWN:
+                    case SDLK_DOWN:
+                        cameraPosition.y--;
 					break;
 				default:
 					break;
