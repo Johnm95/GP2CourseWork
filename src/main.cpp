@@ -27,7 +27,8 @@ vec4 specularLightColour=vec4(1.0f,1.0f,1.0f,1.0f);
 float specularPower=25.0f;
 
 vec3 lightDirection=vec3(0.0f,0.0f,1.0f);
-vec3 cameraPosition=vec3(0.0f,10.0f,10.0f);
+vec3 cameraPosition=vec3(18.0f,0.0f,30.0f);
+vec3 cameraLookat = vec3(-12.0f, 0.0f, 0.0f);
 
 float test=0.0f;
 //for Framebuffer
@@ -130,9 +131,12 @@ void sunLoader()
     string vsPath = ASSET_PATH + SHADER_PATH + "/textureVS.glsl";
     string fsPath = ASSET_PATH + SHADER_PATH + "/textureFS.glsl";
     currentGameObject->loadShader(vsPath, fsPath);
-    currentGameObject->setScale(vec3(0.5f, 0.5f, 0.5f));
-    currentGameObject->setPosition(vec3(-12.0f, 0.0f, 0.0f));
+
+    currentGameObject->setScale(vec3(2.0f, 2.0f, 2.0f));
+    currentGameObject->setPosition(vec3(-18.0f, 0.0f, 0.0f));
+
     currentGameObject->setRotationSpeed(vec3(0.0f, -0.01f, 0.0f));
+
     string texturePath = ASSET_PATH + TEXTURE_PATH + "/sunmap.png";
     currentGameObject->loadDiffuseMap(texturePath);
     
@@ -147,9 +151,12 @@ void mercuryLoader()
     string vsPath = ASSET_PATH + SHADER_PATH + "/specularVSTest.glsl";
     string fsPath = ASSET_PATH + SHADER_PATH + "/specularFSTest.glsl";
     currentGameObject->loadShader(vsPath, fsPath);
-    currentGameObject->setScale(vec3(0.5f, 0.5f, 0.5f));
-    currentGameObject->setPosition(vec3(-4.0f, 0.0f, 0.0f));
+
+    currentGameObject->setScale(vec3(0.3f, 0.3f, 0.3f));
+    currentGameObject->setPosition(vec3(-28.0f, 0.0f, 0.0f));
+
     currentGameObject->setRotationSpeed(vec3(0.0f, -1.0f, 0.0f));
+
     string texturePath = ASSET_PATH + TEXTURE_PATH + "/mercurymap.png";
   //string tecture2Path = ASSET_PATH + TEXTURE_PATH + "/MercuryBumpMap.png";
     currentGameObject->loadDiffuseMap(texturePath);
@@ -167,8 +174,8 @@ void mercuryLoader()
     string vsPath = ASSET_PATH + SHADER_PATH + "/specularVS.glsl";
     string fsPath = ASSET_PATH + SHADER_PATH + "/specularFS.glsl";
     currentGameObject->loadShader(vsPath, fsPath);
-    currentGameObject->setScale(vec3(0.5f, 0.5f, 0.5f));
-    currentGameObject->setPosition(vec3(4.0f, 0.0f, 0.0f));
+    currentGameObject->setScale(vec3(0.4f, 0.4f, 0.4f));
+    currentGameObject->setPosition(vec3(-5.0f, 0.0f, 0.0f));
     
     string texturePath = ASSET_PATH + TEXTURE_PATH + "/venusmap.png";
     currentGameObject->loadDiffuseMap(texturePath);
@@ -186,8 +193,11 @@ void earthLoader()
   string fsPath = ASSET_PATH + SHADER_PATH + "/specularFSTest.glsl";
     currentGameObject->loadShader(vsPath, fsPath);
     currentGameObject->setScale(vec3(0.5f, 0.5f, 0.5f));
-    currentGameObject->setPosition(vec3(12.0f, 0.0f, 0.0f));
+
+    currentGameObject->setPosition(vec3(10.0f, 0.0f, 0.0f));
+
      currentGameObject->setRotationSpeed(vec3(0.0f, -1.0f, 0.0f));
+
     string texturePath = ASSET_PATH + TEXTURE_PATH + "/EarthColourMap.png";
    string tecture2Path = ASSET_PATH + TEXTURE_PATH + "/EarthSpecMap.png";
     currentGameObject->loadDiffuseMap(texturePath);
@@ -267,7 +277,9 @@ void update()
 
 	projMatrix = perspective(45.0f, 640.0f / 480.0f, 0.1f, 100.0f);
 
-	viewMatrix = lookAt(cameraPosition, vec3(0.0f, 0.0f, 1.0f), vec3(0.0f, 1.0f, 0.0f));
+
+	viewMatrix = lookAt(cameraPosition, cameraLookat, vec3(0.0f, 1.0f, 0.0f));
+
 
 	for (auto iter = gameObjects.begin(); iter != gameObjects.end(); iter++)
 	{
@@ -390,6 +402,33 @@ void render()
 	//renderPostQuad();
 }
 
+
+//MR MCMILLAN
+void getLookatPosition(int planetNo)
+{
+    if (planetNo == 1) {
+        cameraPosition = vec3(-30.0f, 0.0f, 20.0f);
+        cameraLookat = vec3(-28.0f, 0.0f, 0.0f);
+
+    }
+    else if (planetNo == 2)
+    {
+        cameraPosition = vec3(-12.0f, 0.0f, 10.0f);
+        cameraLookat = vec3(-12.0f, 0.0f, 0.0f);
+    }
+    else if (planetNo == 3)
+    {
+        cameraPosition = vec3(-5.0f, 0.0f, 10.0f);
+        cameraLookat = vec3(-5.0f, 0.0f, 0.0f);
+    }
+    else if (planetNo == 4)
+    {
+        cameraPosition = vec3(10.0f, 0.0f, 10.0f);
+        cameraLookat = vec3(10.0f, 0.0f, 0.0f);
+    }
+}
+// ^^ CAMERA MOVEMENET N STUFF
+
 int main(int argc, char * arg[])
 {
 	ChangeWorkingDirectory();
@@ -455,48 +494,32 @@ int main(int argc, char * arg[])
 				switch (event.key.keysym.sym)
 				{
 				case SDLK_LEFT:
-            cameraPosition.x++;
-            
-					break;
+
+                        cameraPosition.x--;
+                    break;
 				case SDLK_RIGHT:
-            cameraPosition.x--;
+                        cameraPosition.x++;
 					break;
 				case SDLK_UP:
-            cameraPosition.y--;
+                        cameraPosition.y++;
 					break;
 				case SDLK_DOWN:
-            cameraPosition.y++;
+                        cameraPosition.y--;
 					break;
-          case SDLK_m:
-            cameraPosition.z--;
-            break;
-          case SDLK_n:
-            cameraPosition.z++;
-            break;
-          case SDLK_w:
-            lightDirection.x +=-1.0f;
-            
-            break;
-          case SDLK_s:
-           lightDirection.x +=1.0f;
-            
-            break;
-          case SDLK_d:
-            lightDirection.y +=1.0f;
-            break;
-          case SDLK_a:
-            lightDirection.y +=-1.0f;
-            break;
-          case SDLK_e:
-           lightDirection.z +=1.0f;
-            break;
-          case SDLK_q:
-            lightDirection.z +=-1.0f;
-            break;
-          case SDLK_t:
-            cout<<test<<endl;
-            break;
-				default:
+                case SDLK_1:
+                        getLookatPosition(1);
+                    break;
+                case SDLK_2:
+                        getLookatPosition(2);
+                    break;
+                case SDLK_3:
+                        getLookatPosition(3);
+                    break;
+                case SDLK_4:
+                        getLookatPosition(4);
+                    break;
+                    default:
+
 					break;
 				}
 			}
