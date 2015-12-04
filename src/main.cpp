@@ -426,6 +426,13 @@ void getLookatPosition(int planetNo)
         cameraPosition = vec3(10.0f, 0.0f, 10.0f);
         cameraLookat = vec3(10.0f, 0.0f, 0.0f);
     }
+    else if (planetNo == 5)
+    {
+         cameraPosition=vec3(18.0f,0.0f,30.0f);
+         cameraLookat = vec3(-12.0f, 0.0f, 0.0f);
+
+        
+    }
 }
 // ^^ CAMERA MOVEMENET N STUFF
 
@@ -518,6 +525,9 @@ int main(int argc, char * arg[])
                 case SDLK_4:
                         getLookatPosition(4);
                     break;
+                    case SDLK_5:
+                        getLookatPosition(5);
+                        break;
                     default:
 
 					break;
