@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9329FCE001FF41EFA8E41B73"
+               BlueprintIdentifier = "B879F526415542CBAAFF7CFA"
                BuildableName = "ALL_BUILD"
                BlueprintName = "ALL_BUILD"
                ReferencedContainer = "container:build/GP2CourseWork.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9329FCE001FF41EFA8E41B73"
+            BlueprintIdentifier = "B879F526415542CBAAFF7CFA"
             BuildableName = "ALL_BUILD"
             BlueprintName = "ALL_BUILD"
             ReferencedContainer = "container:build/GP2CourseWork.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9329FCE001FF41EFA8E41B73"
+            BlueprintIdentifier = "B879F526415542CBAAFF7CFA"
             BuildableName = "ALL_BUILD"
             BlueprintName = "ALL_BUILD"
             ReferencedContainer = "container:build/GP2CourseWork.xcodeproj">

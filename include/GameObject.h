@@ -4,6 +4,7 @@
 #include "Common.h"
 #include "Vertices.h"
 #include "Material.h"
+#include "SkyboxMesh.h"
 
 class GameObject
 {
@@ -30,6 +31,20 @@ public:
 	{
 		m_Rotation = rotation;
 	};
+  void setRotationSpeed(const vec3& rotationSpeed)
+  {
+    m_RotationSpeed = rotationSpeed;
+  };
+    
+    void setOrbit(const vec3& orbit)
+    {
+        m_Orbit = orbit;
+    };
+    
+    void setOrbitSpeed(const vec3& orbitSpeed)
+    {
+        m_orbitSpeed = orbitSpeed;
+    };
 
 	void setScale(const vec3& scale)
 	{
@@ -95,6 +110,16 @@ public:
 	{
 		return m_NoOfVertices;
 	};
+    
+    void setMesh(shared_ptr<SkyboxMesh> mesh)
+    {
+        m_Mesh=mesh;
+    };
+    
+    void setMaterial(shared_ptr<Material> material)
+    {
+        m_Material=material;
+    };
   
  /* void setMaterial(shared_ptr<Material> material)
   {
@@ -119,6 +144,10 @@ public:
     return m_SpecularMap;
   };
 private:
+    
+    shared_ptr<SkyboxMesh> m_Mesh;
+    shared_ptr<Material> m_Material;
+    
 	GLuint m_VBO;
 	GLuint m_EBO;
 	GLuint m_VAO;
@@ -129,6 +158,9 @@ private:
 	mat4 m_ModelMatrix;
 	vec3 m_Position;
 	vec3 m_Rotation;
+    vec3 m_Orbit;
+  vec3 m_RotationSpeed;
+    vec3 m_orbitSpeed;
 	vec3 m_Scale;
 
 	vec4 m_AmbientMaterial; 
@@ -141,6 +173,10 @@ private:
 	vector<shared_ptr<GameObject> > m_ChildGameObjects;
   //shared_ptr<Material> m_Material;
 	GameObject * m_ParentGameObject;
+  //time
+  unsigned int lastTicks, currentTicks;
+  float elapsedTime;
+  float totalTime;
 };
 
 #endif

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "01F224A226874F63AD677D8B"
+               BlueprintIdentifier = "2D00C866EC3E4B67A569B994"
                BuildableName = "GP2CourseWork"
                BlueprintName = "GP2CourseWork"
                ReferencedContainer = "container:build/GP2CourseWork.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "01F224A226874F63AD677D8B"
+            BlueprintIdentifier = "2D00C866EC3E4B67A569B994"
             BuildableName = "GP2CourseWork"
             BlueprintName = "GP2CourseWork"
             ReferencedContainer = "container:build/GP2CourseWork.xcodeproj">
@@ -55,18 +55,13 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "01F224A226874F63AD677D8B"
+            BlueprintIdentifier = "2D00C866EC3E4B67A569B994"
             BuildableName = "GP2CourseWork"
             BlueprintName = "GP2CourseWork"
             ReferencedContainer = "container:build/GP2CourseWork.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
-         <AdditionalOption
-            key = "NSZombieEnabled"
-            value = "YES"
-            isEnabled = "YES">
-         </AdditionalOption>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
@@ -79,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "01F224A226874F63AD677D8B"
+            BlueprintIdentifier = "2D00C866EC3E4B67A569B994"
             BuildableName = "GP2CourseWork"
             BlueprintName = "GP2CourseWork"
             ReferencedContainer = "container:build/GP2CourseWork.xcodeproj">
