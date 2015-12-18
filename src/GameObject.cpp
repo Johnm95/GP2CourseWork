@@ -163,3 +163,8 @@ void GameObject::LoadSpecularMap(const string& filename)
   glGenerateMipmap(GL_TEXTURE_2D);
 }
 
+void GetCameraPosition()
+{
+    
+}
+

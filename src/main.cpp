@@ -139,7 +139,7 @@ void sunLoader()
     currentGameObject->setScale(vec3(2.0f, 2.0f, 2.0f));
     currentGameObject->setPosition(vec3(0.0f, 0.0f, 0.0f));
 
-    currentGameObject->setRotationSpeed(vec3(0.0f, -0.01f, 0.0f));
+    currentGameObject->setRotationSpeed(vec3(100.0f, -100.0f, 100.0f));
 
     string texturePath = ASSET_PATH + TEXTURE_PATH + "/sunmap.png";
     currentGameObject->loadDiffuseMap(texturePath);
@@ -379,6 +379,8 @@ void update()
 	{
 		(*iter)->update();
 	}
+    
+
 }
 
 void renderGameObject(shared_ptr<GameObject> gameObject)
@@ -496,13 +498,19 @@ void render()
 	//renderPostQuad();
 }
 
+void renderHUD()
+{
+    
+}
+
 
 //MR MCMILLAN
 void getLookatPosition(int planetNo)
 {
     if (planetNo == 1) {
-        cameraPosition = vec3(-30.0f, 0.0f, 20.0f);
-        cameraLookat = vec3(-28.0f, 0.0f, 0.0f);
+        cameraPosition = vec3(100.0f, 2.0f, 2.0f);
+        cameraLookat = vec3(0.0f, 0.0f, 0.0f);
+        
 
     }
     else if (planetNo == 2)
@@ -512,13 +520,19 @@ void getLookatPosition(int planetNo)
     }
     else if (planetNo == 3)
     {
-        cameraPosition = vec3(-5.0f, 0.0f, 10.0f);
-        cameraLookat = vec3(-5.0f, 0.0f, 0.0f);
-    }
+        
+        cameraPosition=vec3(0.0f,75.0f,75.0f);
+        cameraLookat = vec3(0.0f, 0.0f, 0.0f);    }
     else if (planetNo == 4)
     {
         cameraPosition = vec3(10.0f, 0.0f, 10.0f);
         cameraLookat = vec3(10.0f, 0.0f, 0.0f);
+    }
+    
+    else if (planetNo == 5)
+    {
+        cameraPosition=vec3(0.0f,75.0f,75.0f);
+        cameraLookat = vec3(0.0f, 0.0f, 0.0f);
     }
 }
 // ^^ CAMERA MOVEMENET N STUFF
@@ -612,6 +626,9 @@ int main(int argc, char * arg[])
                 case SDLK_4:
                         getLookatPosition(4);
                     break;
+                    case SDLK_5:
+                        getLookatPosition(5);
+                        break;
                     default:
 
 					break;

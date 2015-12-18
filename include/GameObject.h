@@ -120,6 +120,7 @@ public:
     {
         m_Material=material;
     };
+    
   
  /* void setMaterial(shared_ptr<Material> material)
   {
